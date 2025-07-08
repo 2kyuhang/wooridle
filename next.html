@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>말씀 이미지 보기</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url("images/bible_bg.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Georgia', 'serif';
+      color: #3c2f1c;
+    }
+    .image-container {
+      background-color: rgba(255, 255, 240, 0.85);
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-container img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      object-fit: contain;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img src="images/bible_verse_image.jpg" alt="사사기 21장 25절 말씀 이미지" />
+  </div>
+</body>
+</html>
