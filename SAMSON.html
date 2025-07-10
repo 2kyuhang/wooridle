@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>우리들 병원</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <style>
+    :root {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    html, body {
+      margin: 0; padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url("images/삼손.jpg") no-repeat center center;
+      background-size: cover;
+    }
+    .card {
+      width: 95vw;
+      max-width: 480px;
+      background: rgba(255 255 255 / 0.75);
+      backdrop-filter: blur(6px);
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem;
+      box-sizing: border-box;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .code-box {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+    }
+    .code-box input {
+      flex: 1 1 0;
+      min-width: 0;
+      height: 4.2rem;
+      font-size: 2rem;
+      text-align: center;
+      text-transform: uppercase;
+      border: 1.5px solid #ccc;
+      border-radius: 0.6rem;
+      box-sizing: border-box;
+      inputmode: text;
+    }
+    .card button {
+      width: 100%;
+      margin-top: 2rem;
+      padding: 1rem 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      background-color: #1e40af;
+      border: none;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .card button:hover,
+    .card button:focus {
+      background-color: #1d4ed8;
+      outline: none;
+    }
+    .error {
+      margin-top: 0.8rem;
+      color: #dc2626;
+      font-size: 1.1rem;
+      min-height: 1.5rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>삼손</h1>
+    <p>6자리 알파벳 코드를 입력하세요</p>
+    <div class="code-box">
+      <input type="text" maxlength="1" id="c1" inputmode="text" />
+      <input type="text" maxlength="1" id="c2" inputmode="text" />
+      <input type="text" maxlength="1" id="c3" inputmode="text" />
+      <input type="text" maxlength="1" id="c4" inputmode="text" />
+      <input type="text" maxlength="1" id="c5" inputmode="text" />
+      <input type="text" maxlength="1" id="c6" inputmode="text" />
+    </div>
+    <div id="error" class="error"></div>
+
+    <!-- 여기에 확인 버튼 추가 -->
+    <button id="checkBtn">확인</button>
+  </div>
+
+  <script>
+    const CODE = "SAMSON";
+    const nextPage = "next.html";
+
+    const inputs = [
+      document.getElementById("c1"),
+      document.getElementById("c2"),
+      document.getElementById("c3"),
+      document.getElementById("c4"),
+      document.getElementById("c5"),
+      document.getElementById("c6"),
+    ];
+    const error = document.getElementById("error");
+    const checkBtn = document.getElementById("checkBtn");
+
+    inputs.forEach((input, idx) => {
+      input.addEventListener("input", () => {
+        input.value = input.value.toUpperCase().replace(/[^A-Z]/g, "");
+        if (input.value && idx < inputs.length - 1) inputs[idx + 1].focus();
+      });
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace" && !input.value && idx > 0) {
+          inputs[idx - 1].focus();
+        }
+      });
+    });
+
+    checkBtn.addEventListener("click", () => {
+      const value = inputs.map(i => i.value.toUpperCase()).join("");
+      if (value === CODE) {
+        window.location.href = nextPage;
+      } else {
+        error.textContent = "코드가 일치하지 않습니다. 다시 시도해 주세요.";
+        inputs[0].focus();
+      }
+    });
+
+    inputs[0].focus();
+  </script>
+</body>
+</html>
