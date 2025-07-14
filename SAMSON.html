@@ -95,43 +95,60 @@
   </div>
 
   <script>
-    const CODE = "SAMSON";
-    const nextPage = "next.html";
+  const CODE = "SAMSON";
+  const nextPage = "othniel.html";
 
-    const inputs = [
-      document.getElementById("c1"),
-      document.getElementById("c2"),
-      document.getElementById("c3"),
-      document.getElementById("c4"),
-      document.getElementById("c5"),
-      document.getElementById("c6"),
-    ];
-    const error = document.getElementById("error");
-    const checkBtn = document.getElementById("checkBtn");
+  const inputs = [
+    document.getElementById("c1"),
+    document.getElementById("c2"),
+    document.getElementById("c3"),
+    document.getElementById("c4"),
+    document.getElementById("c5"),
+    document.getElementById("c6"),
+  ];
+  const error = document.getElementById("error");
+  const checkBtn = document.getElementById("checkBtn");
 
-    inputs.forEach((input, idx) => {
-      input.addEventListener("input", () => {
-        input.value = input.value.toUpperCase().replace(/[^A-Z]/g, "");
-        if (input.value && idx < inputs.length - 1) inputs[idx + 1].focus();
-      });
-      input.addEventListener("keydown", (e) => {
-        if (e.key === "Backspace" && !input.value && idx > 0) {
-          inputs[idx - 1].focus();
-        }
-      });
+  let failCount = 0;
+  let hintShown = false;
+
+  inputs.forEach((input, idx) => {
+    input.addEventListener("input", () => {
+      input.value = input.value.toUpperCase().replace(/[^A-Z]/g, "");
+      if (input.value && idx < inputs.length - 1) inputs[idx + 1].focus();
     });
-
-    checkBtn.addEventListener("click", () => {
-      const value = inputs.map(i => i.value.toUpperCase()).join("");
-      if (value === CODE) {
-        window.location.href = nextPage;
-      } else {
-        error.textContent = "코드가 일치하지 않습니다. 다시 시도해 주세요.";
-        inputs[0].focus();
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Backspace" && !input.value && idx > 0) {
+        inputs[idx - 1].focus();
       }
     });
+  });
 
-    inputs[0].focus();
-  </script>
+  checkBtn.addEventListener("click", () => {
+    const value = inputs.map(i => i.value.toUpperCase()).join("");
+    if (value === CODE) {
+      window.location.href = nextPage;
+    } else {
+      failCount++;
+      error.textContent = "코드가 일치하지 않습니다. 다시 시도해 주세요.";
+
+      if (failCount >= 3) {
+        const hintEl = document.createElement("div");
+        hintEl.id = "hint";
+        hintEl.textContent = "힌트: 머리카락에 힘이 있었던 인물입니다.";
+        hintEl.style.color = "#1e40af";
+        hintEl.style.marginTop = "0.5rem";
+        hintEl.style.fontWeight = "600";
+        error.appendChild(hintEl);
+        hintShown = true;
+      }
+
+      inputs[0].focus();
+    }
+  });
+
+  inputs[0].focus();
+</script>
+
 </body>
 </html>
