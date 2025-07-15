@@ -12,58 +12,69 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Georgia', 'serif';
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
       color: #3c2f1c;
     }
+
     .card {
-      background-color: rgba(255, 255, 240, 0.85);
-      padding: 2rem;
+      background-color: rgba(255, 255, 240, 0.88);
+      padding: 2rem 1.5rem;
       border-radius: 1.5rem;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-      max-width: 90vw;
-      max-height: 90vh;
+      max-width: 92vw;
+      max-height: 92vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
+
     .notice {
-      font-size: 1.05rem;
-      font-weight: 500;
-      background-color: rgba(255,255,255,0.85);
-      color: #1e40af;
-      padding: 0.6rem 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      background-color: #f0f8ff;
+      color: #1e3a8a;
+      padding: 1rem 1.5rem;
       border-radius: 1rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 1.2rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
       text-align: center;
-      max-width: 90%;
+      line-height: 1.6;
     }
-    .notice a {
-      color: #1e40af;
-      text-decoration: none;
+
+    .notice span {
+      display: block;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 0.5rem;
+      color: #374151;
     }
+
     .image-container img {
       max-width: 100%;
-      max-height: 70vh;
+      max-height: 65vh;
       border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
       object-fit: contain;
       user-select: none;
+    }
+
+    a {
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScP_3du4Txg3SdJm2fnfDafpCt3FViI3HsIWO3Cfeygy2xM1w/viewform?usp=header" target="_blank">
-    <p class="notice">
-      📌화면을 클릭해주세요📌
-      <br>
-      해당 링크를 통해 포스트게임 완료 여부 작성
-    </p>
-    <div class="image-container">
-      <img src="images/bible_verse_image.jpg" alt="사사기 21장 25절 말씀 이미지" />
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScP_3du4Txg3SdJm2fnfDafpCt3FViI3HsIWO3Cfeygy2xM1w/viewform?usp=header" target="_blank">
+    <div class="card">
+      <p class="notice">
+        📌 화면을 클릭해주세요 📌
+        <span>해당 링크를 통해 포스트게임 완료 여부를 작성해 주세요.</span>
+      </p>
+      <div class="image-container">
+        <img src="images/bible_verse_image.jpg" alt="사사기 21장 25절 말씀 이미지" />
+      </div>
     </div>
-  </div></a>
+  </a>
 </body>
 </html>
