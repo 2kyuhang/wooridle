@@ -74,12 +74,15 @@
       min-height: 1.5rem;
       font-weight: 500;
     }
+    p {
+      font-size: 20px;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>기드온</h1>
-    <p>6자리 알파벳 코드를 입력하세요</p>
+    <h1>3단계</h1>
+    <p>양털에 이슬이 맺히거나 마르기를 기도했어요.</p>
     <div class="code-box">
       <input type="text" maxlength="1" id="c1" inputmode="text" />
       <input type="text" maxlength="1" id="c2" inputmode="text" />
@@ -135,7 +138,7 @@
       if (failCount >= 3) {
         const hintEl = document.createElement("div");
         hintEl.id = "hint";
-        hintEl.textContent = "힌트: 양털에 이슬이 맺히는 기적을 본 인물입니다.";
+        hintEl.textContent = "힌트: 300명의 군사로 미디안 군대를 이기기 전에 하나님께 징표를 구한 사사는 누구일까요?";
         hintEl.style.color = "#1e40af";
         hintEl.style.marginTop = "0.5rem";
         hintEl.style.fontWeight = "600";

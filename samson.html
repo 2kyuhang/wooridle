@@ -74,12 +74,15 @@
       min-height: 1.5rem;
       font-weight: 500;
     }
+    p {
+      font-size: 20px;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>삼손</h1>
-    <p>6자리 알파벳 코드를 입력하세요</p>
+    <h1>1단계</h1>
+    <p>하나님이 주신 큰 힘으로 블레셋 사람들을 물리친 사사는 누구일까요?</p>
     <div class="code-box">
       <input type="text" maxlength="1" id="c1" inputmode="text" />
       <input type="text" maxlength="1" id="c2" inputmode="text" />
@@ -96,7 +99,7 @@
 
   <script>
   const CODE = "SAMSON";
-  const nextPage = "othniel.html";
+  const nextPage = "deborah.html";
 
   const inputs = [
     document.getElementById("c1"),
@@ -135,7 +138,7 @@
       if (failCount >= 3) {
         const hintEl = document.createElement("div");
         hintEl.id = "hint";
-        hintEl.textContent = "힌트: 머리카락에 힘이 있었던 인물입니다.";
+        hintEl.textContent = "힌트: 머리카락이 잘리면 힘이 사라졌어요!";
         hintEl.style.color = "#1e40af";
         hintEl.style.marginTop = "0.5rem";
         hintEl.style.fontWeight = "600";

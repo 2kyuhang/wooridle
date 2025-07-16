@@ -77,12 +77,15 @@
       min-height: 1.5rem;
       font-weight: 500;
     }
+    p {
+      font-size: 20px;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>드보라</h1>
-    <p>7자리 알파벳 코드를 입력하세요</p>
+    <h1>2단계</h1>
+    <p>이스라엘을 재판하고, 바락 장군과 함께 전쟁을 이끈 사사는 누구일까요?</p>
     <div class="code-box">
       <input type="text" maxlength="1" id="c1" inputmode="text" />
       <input type="text" maxlength="1" id="c2" inputmode="text" />
@@ -99,7 +102,7 @@
 
   <script>
   const CODE = "DEBORAH"; // 7자리 코드
-  const nextPage = "samson.html";
+  const nextPage = "gideon.html";
 
   const inputs = [
     document.getElementById("c1"),
@@ -140,7 +143,7 @@
       if (failCount >= 3) {
         const hintEl = document.createElement("div");
         hintEl.id = "hint";
-        hintEl.textContent = "힌트: 드보라(사사기 4~5장)는 이스라엘의 유일한 여성 사사";
+        hintEl.textContent = "힌트: 사사기에 나오는 용감한 여자 사사예요.";
         hintEl.style.color = "#1e40af";
         hintEl.style.marginTop = "0.5rem";
         hintEl.style.fontWeight = "600";
