@@ -17,7 +17,7 @@
     }
 
     .card {
-      background-color: rgba(255, 255, 240, 0.88);
+      background-color: rgba(255, 255, 240, 0.92);
       padding: 2rem 1.5rem;
       border-radius: 1.5rem;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
@@ -29,11 +29,19 @@
       justify-content: center;
     }
 
+    .celebration {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #e11d48;
+      margin-bottom: 1rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
     .notice {
       font-size: 1.2rem;
       font-weight: 600;
-      background-color: #f0f8ff;
-      color: #1e3a8a;
+      background-color: #f0fdf4;
+      color: #065f46;
       padding: 1rem 1.5rem;
       border-radius: 1rem;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -62,11 +70,17 @@
     a {
       text-decoration: none;
     }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScP_3du4Txg3SdJm2fnfDafpCt3FViI3HsIWO3Cfeygy2xM1w/viewform?usp=header" target="_blank">
     <div class="card">
+      <div class="celebration">🎉 축하합니다! 🎉</div>
       <p class="notice">
         📌 화면을 클릭해주세요 📌
         <span>해당 링크를 통해 포스트게임 완료 여부를 작성해 주세요.</span>
