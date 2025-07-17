@@ -12,15 +12,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      font-family: 'CookieRun', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
       color: #3c2f1c;
     }
 
     .card {
-      background-color: rgba(255, 255, 240, 0.92);
-      padding: 2rem 1.5rem;
+      background-color: rgba(255, 255, 240, 0.95);
+      padding: 1.5rem 1.2rem;
       border-radius: 1.5rem;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
       max-width: 92vw;
       max-height: 92vh;
       display: flex;
@@ -30,39 +30,49 @@
     }
 
     .celebration {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       font-weight: bold;
-      color: #e11d48;
-      margin-bottom: 0.5rem; /* 간격 줄임 */
+      color: #f43f5e;
+      margin-bottom: 0.4rem;
       animation: fadeIn 2s ease-in-out;
+      text-align: center;
+    }
+
+    .sub-celebration {
+      font-size: 0.95rem;
+      color: #475569;
+      
+      text-align: center;
+      line-height: 1.5;
+      max-width: 90%;
     }
 
     .notice {
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 600;
       background-color: #f0fdf4;
-      color: #065f46;
-      padding: 1rem 1.2rem;
+      color: #047857;
+      padding: 0.8rem 1rem;
       border-radius: 1rem;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 1rem; /* 간격 줄임 */
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+      margin-bottom: 0.8rem;
       text-align: center;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     .notice span {
       display: block;
-      font-size: 1rem;
+      font-size: 0.85rem;
       font-weight: 400;
-      margin-top: 0.3rem; /* 줄임 */
-      color: #374151;
+      margin-top: 0.2rem;
+      color: #4b5563;
     }
 
     .image-container img {
       max-width: 100%;
-      max-height: 65vh;
+      max-height: 60vh;
       border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
       object-fit: contain;
       user-select: none;
     }
@@ -81,9 +91,10 @@
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScP_3du4Txg3SdJm2fnfDafpCt3FViI3HsIWO3Cfeygy2xM1w/viewform?usp=header" target="_blank">
     <div class="card">
       <div class="celebration">🎉 축하합니다! 🎉</div>
+      <div class="sub-celebration">이제 당신은 전염병으로부터 우리를 지켜낼 수 있는 능력을 가지게 되었어요!</div>
       <p class="notice">
-        📌 화면을 클릭해주세요 📌
-        <span>해당 링크를 통해 포스트게임 완료 여부를 작성해 주세요.</span>
+        📌 화면을 톡! 눌러주세요 📌
+        <span>링크를 통해 포스트게임 완료 여부를 알려주세요 😊</span>
       </p>
       <div class="image-container">
         <img src="images/bible_verse_image.jpg" alt="사사기 21장 25절 말씀 이미지" />
