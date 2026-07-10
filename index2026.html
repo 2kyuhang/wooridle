@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>마음의 편지 • QT Festival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&amp;family=Comic+Neue:wght@700&amp;display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', system-ui, sans-serif;
+            background: linear-gradient(135deg, #f8f1e3 0%, #e8d9c0 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .poster {
+            background: #f8f1e3;
+            box-shadow: 0 20px 40px -10px rgb(92 70 52 / 0.4);
+            border: 12px solid #5c4634;
+        }
+        
+        .love-text {
+            font-family: 'Comic Neue', cursive;
+            font-size: 3.6rem;
+            line-height: 1;
+            font-weight: 700;
+            background: linear-gradient(90deg, #f59e0b, #ef4444, #c026d3, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .team-btn {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            width: 100%;
+        }
+        
+        .team-btn:hover {
+            transform: scale(1.1) rotate(3deg);
+        }
+        
+        .team-image-container {
+            width: 100%;
+            flex: 1;
+            background: #f8f1e3;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 6px solid #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .team-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .floating-heart {
+            position: fixed;
+            font-size: 2.9rem;
+            z-index: 99999;
+            pointer-events: none;
+            user-select: none;
+            animation: fallDown 5.8s forwards ease-in-out;
+        }
+        
+        @keyframes fallDown {
+            0% {
+                opacity: 1;
+                transform: translateY(-941px) scale(0.5) rotate(-20deg);
+            }
+            45% {
+                transform: translateY(35vh) scale(1.12) rotate(18deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(110vh) scale(1.45) rotate(45deg);
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-8px) rotate(-6deg); }
+            75% { transform: translateX(8px) rotate(6deg); }
+        }
+        
+        .animate-shake {
+            animation: shake 0.7s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-[380px] mx-auto p-4 min-h-screen flex flex-col">
+        
+        <div class="poster rounded-3xl overflow-hidden flex-1 flex flex-col">
+            
+            <div class="bg-[#5c4634] text-amber-100 py-4 text-center font-bold text-lg tracking-widest">
+                2026 SUMMER QT FESTIVAL
+            </div>
+
+            <div class="flex-1 flex flex-col pt-2 pb-2 px-5">
+                
+                <!-- Header -->
+                <div class="text-center mb-4">
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="text-5xl">💌</span>
+                        <div class="love-text">10ve</div>
+                        <span class="text-5xl">💌</span>
+                    </div>
+                    <div class="text-[#5c4634] text-2xl font-medium mt-1">
+                        마음을 전하세요
+                    </div>
+                </div>
+
+                <!-- Team Grid -->
+                <div id="team-container" class="grid grid-cols-3 gap-4 flex-1">
+                    <!-- JS populated -->
+                </div>
+
+                <!-- 10번 버튼 -->
+                <div class="mt-8 flex justify-center">
+                    <button onclick="triggerAnimation()" 
+                            class="team-btn w-28 h-28 rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                        <img id="img10" src="img_10.jpeg" alt="10" class="w-24 h-24 object-contain">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const teamData = [
+            { id: 1, name: "사역자",   img: "img_01.jpeg" },
+            { id: 2, name: "본부",     img: "img_02.jpeg" },
+            { id: 3, name: "진행",     img: "img_03.jpeg" },
+            { id: 4, name: "운영",     img: "img_04.jpeg" },
+            { id: 5, name: "헬퍼",     img: "img_05.jpeg" },
+            { id: 6, name: "프 1팀",   img: "img_06.jpeg" },
+            { id: 7, name: "프2팀",    img: "img_07.jpeg" },
+            { id: 8, name: "디데미",   img: "img_08.jpeg" },
+            { id: 9, name: "찬양팀",   img: "img_09.jpeg" }
+        ];
+
+        function createTeamButton(team) {
+            const a = document.createElement('a');
+            a.href = "#"; 
+            a.className = `team-btn flex flex-col items-center bg-white rounded-3xl py-3 px-1 shadow-md active:scale-95 w-full`;
+            
+            a.innerHTML = `
+                <div class="team-image-container">
+                    <img src="${team.img}" alt="${team.name}" class="team-image">
+                </div>
+                <div class="text-[#5c4634] font-bold text-[15px] leading-tight text-center mt-2.5">${team.name}</div>
+            `;
+            return a;
+        }
+
+        function initTeams() {
+            const container = document.getElementById('team-container');
+            container.innerHTML = '';
+            teamData.forEach(team => container.appendChild(createTeamButton(team)));
+        }
+
+        function createFloatingHeart() {
+            const hearts = ['❤️','💖','💗','💘','💝','💞','🫶','💕','💓','✨'];
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            
+            heart.style.left = `${Math.random() * 98}vw`;
+            heart.style.animationDuration = `${Math.random() * 2.2 + 5.4}s`;
+            heart.style.opacity = Math.random() * 0.65 + 0.8;
+            
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 8000);
+        }
+
+        function triggerAnimation() {
+            const buttons = document.querySelectorAll('.team-btn');
+            const img10 = document.getElementById('img10');
+            
+            img10.classList.add('animate-shake');
+            setTimeout(() => img10.classList.remove('animate-shake'), 900);
+            
+            buttons.forEach((btn, i) => {
+                setTimeout(() => {
+                    btn.classList.add('animate-shake');
+                    setTimeout(() => btn.classList.remove('animate-shake'), 800);
+                }, i * 70);
+            });
+            
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    createFloatingHeart();
+                }, i * 42);
+            }
+        }
+
+        window.onload = () => {
+            initTeams();
+        };
+    </script>
+</body>
+</html>
